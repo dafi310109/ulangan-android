@@ -39,7 +39,7 @@ class NeuTheme {
   Color get primary => isDark ? const Color(0xFF64B5F6) : const Color(0xFF2B5C8F);
   Color get primaryLight => isDark ? const Color(0xFF90CAF9) : const Color(0xFF4A7FB8);
   Color get secondary => const Color(0xFFF4A261);
-  Color get success => const Color(0xFF2A9D8F);
+  Color get success => const Color.from(alpha: 1, red: 0.165, green: 0.616, blue: 0.561);
   Color get danger => const Color(0xFFE63946); // Signature red heart accent
   Color get gold => const Color(0xFFF5B041);
   Color get silver => const Color(0xFFA8BDD4);
