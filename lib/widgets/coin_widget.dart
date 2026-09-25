@@ -50,14 +50,15 @@ class CoinWidget extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: SizedBox(
-        width: size + 60,
-        height: size + 110,
+        width: size,
+        height: size + 24,
         child: Stack(
+          clipBehavior: Clip.none,
           alignment: Alignment.center,
           children: [
             // 1. Dynamic Ground Shadow
             Positioned(
-              bottom: 12,
+              bottom: 4,
               child: AnimatedContainer(
                 duration: const Duration(milliseconds: 50),
                 width: (size * 0.75) * shadowScale,

@@ -614,43 +614,53 @@ class _CoinFlipScreenState extends State<CoinFlipScreen>
                         if (_activeMode == 2) {
                           // Dual Coin Mode
                           final rot2 = _rotationAnimation2.value;
-                          return Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              CoinWidget(
-                                showKepala: _showKepala,
-                                size: 85,
-                                flipProgress: prog,
-                                rotationAngle: rot,
-                                material: _selectedMaterial,
-                                theme: theme,
-                                onTap: _flipCoin,
+                          return FittedBox(
+                            fit: BoxFit.scaleDown,
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.min,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  CoinWidget(
+                                    showKepala: _showKepala,
+                                    size: 78,
+                                    flipProgress: prog,
+                                    rotationAngle: rot,
+                                    material: _selectedMaterial,
+                                    theme: theme,
+                                    onTap: _flipCoin,
+                                  ),
+                                  const SizedBox(width: 8),
+                                  CoinWidget(
+                                    showKepala: _showKepala2,
+                                    size: 78,
+                                    flipProgress: prog,
+                                    rotationAngle: rot2,
+                                    material: _selectedMaterial == CoinMaterial.gold
+                                        ? CoinMaterial.silver
+                                        : CoinMaterial.gold,
+                                    theme: theme,
+                                    onTap: _flipCoin,
+                                  ),
+                                ],
                               ),
-                              const SizedBox(width: 6),
-                              CoinWidget(
-                                showKepala: _showKepala2,
-                                size: 85,
-                                flipProgress: prog,
-                                rotationAngle: rot2,
-                                material: _selectedMaterial == CoinMaterial.gold
-                                    ? CoinMaterial.silver
-                                    : CoinMaterial.gold,
-                                theme: theme,
-                                onTap: _flipCoin,
-                              ),
-                            ],
+                            ),
                           );
                         }
 
                         // Single Coin
-                        return CoinWidget(
-                          showKepala: _showKepala,
-                          size: 155,
-                          flipProgress: prog,
-                          rotationAngle: rot,
-                          material: _selectedMaterial,
-                          theme: theme,
-                          onTap: _flipCoin,
+                        return FittedBox(
+                          fit: BoxFit.scaleDown,
+                          child: CoinWidget(
+                            showKepala: _showKepala,
+                            size: 150,
+                            flipProgress: prog,
+                            rotationAngle: rot,
+                            material: _selectedMaterial,
+                            theme: theme,
+                            onTap: _flipCoin,
+                          ),
                         );
                       },
                     ),
